@@ -42,7 +42,7 @@ export default function SessionScreen() {
     const timeout = setTimeout(() => {
       Animated.timing(intentionOpacity, {
         toValue: 0,
-        duration: 2000,
+        duration: 1500,
         useNativeDriver: true,
       }).start();
     }, 10000);
