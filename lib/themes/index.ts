@@ -1,0 +1,160 @@
+import { MurmurationCanvas } from '../../components/canvas/MurmurationCanvas';
+import type { Theme, Entitlement } from '../../types';
+import { canAccessTheme } from '../entitlements';
+
+export const themes: Theme[] = [
+  {
+    id: 'murmuration',
+    name: 'Murmuration',
+    tier: 'free',
+    component: MurmurationCanvas,
+    description: 'A flock of birds that responds to your writing.',
+    defaultParams: {
+      particleCount: 80,
+      speed: 0.3,
+      colourTemperature: 0.2,
+      cohesion: 0.4,
+      turbulence: 0.0,
+    },
+  },
+  {
+    id: 'wet-ink',
+    name: 'Wet Ink on Paper',
+    tier: 'plus',
+    component: MurmurationCanvas,
+    description: 'Ink bleeding into paper fibres as you write.',
+    defaultParams: { particleCount: 120, speed: 0.2, colourTemperature: 0.15, cohesion: 0.6, turbulence: 0.05 },
+  },
+  {
+    id: 'smoke',
+    name: 'Smoke in Still Air',
+    tier: 'plus',
+    component: MurmurationCanvas,
+    description: 'Wisps of smoke curling upward, shaped by your pace.',
+    defaultParams: { particleCount: 100, speed: 0.15, colourTemperature: 0.1, cohesion: 0.3, turbulence: 0.1 },
+  },
+  {
+    id: 'sand',
+    name: 'Sand on Glass',
+    tier: 'pro',
+    component: MurmurationCanvas,
+    description: 'Granules shifting on a vibrating surface.',
+    defaultParams: { particleCount: 200, speed: 0.25, colourTemperature: 0.3, cohesion: 0.5, turbulence: 0.15 },
+  },
+  {
+    id: 'mycelium',
+    name: 'Mycelium Network',
+    tier: 'pro',
+    component: MurmurationCanvas,
+    description: 'Underground networks growing with each word.',
+    defaultParams: { particleCount: 150, speed: 0.1, colourTemperature: 0.05, cohesion: 0.7, turbulence: 0.02 },
+  },
+  {
+    id: 'kelp',
+    name: 'Kelp in Current',
+    tier: 'plus',
+    component: MurmurationCanvas,
+    description: 'Swaying fronds in an underwater current.',
+    defaultParams: { particleCount: 90, speed: 0.2, colourTemperature: 0.1, cohesion: 0.5, turbulence: 0.08 },
+  },
+  {
+    id: 'first-light',
+    name: 'First Light',
+    tier: 'pro',
+    component: MurmurationCanvas,
+    description: 'Dawn breaking over a still landscape.',
+    defaultParams: { particleCount: 80, speed: 0.15, colourTemperature: 0.6, cohesion: 0.4, turbulence: 0.0 },
+  },
+  // Gallery themes (Track B)
+  {
+    id: 'one-mark',
+    name: 'One Mark',
+    artist: 'Lee Ufan',
+    tier: 'gallery',
+    editionSize: 1000,
+    component: MurmurationCanvas,
+    description: 'A single mark accumulates as you write. At session end: one mark, permanent.',
+    artistStatement: 'To paint is to encounter. The mark and the space it occupies are not separate things.',
+    defaultParams: { particleCount: 80, speed: 0.1, colourTemperature: 0.05, cohesion: 0.9, turbulence: 0.0 },
+  },
+  {
+    id: 'thread',
+    name: 'Thread',
+    artist: 'Chiharu Shiota',
+    tier: 'gallery',
+    editionSize: 1500,
+    component: MurmurationCanvas,
+    description: 'Fine threads pulled toward the centre, accumulating into a web.',
+    artistStatement: 'Thread is a line drawn in space. Memory is a thread that connects us to the world.',
+    defaultParams: { particleCount: 200, speed: 0.2, colourTemperature: 0.15, cohesion: 0.8, turbulence: 0.03 },
+  },
+  {
+    id: 'sea-and-time',
+    name: 'Sea and Time',
+    artist: 'Hiroshi Sugimoto',
+    tier: 'gallery',
+    editionSize: 500,
+    component: MurmurationCanvas,
+    description: 'A horizon averaging time into stillness, like a long exposure.',
+    defaultParams: { particleCount: 80, speed: 0.05, colourTemperature: 0.2, cohesion: 0.3, turbulence: 0.0 },
+  },
+  {
+    id: 'gratitude',
+    name: 'Gratitude',
+    artist: 'Agnes Martin Estate',
+    tier: 'gallery',
+    editionSize: 2000,
+    component: MurmurationCanvas,
+    description: 'Nearly-white canvas with faint pencil-thin lines accumulating as you write.',
+    artistStatement: 'The response to beauty is the feeling of joy. Joy not in things but in ourselves.',
+    defaultParams: { particleCount: 100, speed: 0.1, colourTemperature: 0.0, cohesion: 0.6, turbulence: 0.0 },
+  },
+  {
+    id: 'weather',
+    name: 'Weather',
+    artist: 'Olafur Eliasson',
+    tier: 'gallery',
+    editionSize: 1000,
+    component: MurmurationCanvas,
+    description: 'Real weather data shapes the canvas. Writing negotiates between inside and outside.',
+    defaultParams: { particleCount: 120, speed: 0.3, colourTemperature: 0.4, cohesion: 0.5, turbulence: 0.1 },
+  },
+  {
+    id: 'vibration',
+    name: 'Vibration',
+    artist: 'Yuko Mohri',
+    tier: 'gallery',
+    editionSize: 1000,
+    component: MurmurationCanvas,
+    description: 'Delicate geometric objects trembling as you write.',
+    defaultParams: { particleCount: 80, speed: 0.25, colourTemperature: 0.2, cohesion: 0.4, turbulence: 0.2 },
+  },
+  {
+    id: 'river',
+    name: 'River',
+    artist: 'Carolina Caycedo',
+    tier: 'gallery',
+    editionSize: 1500,
+    component: MurmurationCanvas,
+    description: 'A satellite-view river system fed by the rainfall of your words.',
+    defaultParams: { particleCount: 150, speed: 0.2, colourTemperature: 0.15, cohesion: 0.6, turbulence: 0.05 },
+  },
+  {
+    id: 'glaze',
+    name: 'Glaze',
+    artist: 'Theaster Gates',
+    tier: 'gallery',
+    editionSize: 1000,
+    component: MurmurationCanvas,
+    description: 'A dark ceramic surface slowly glowing as time accumulates.',
+    defaultParams: { particleCount: 80, speed: 0.05, colourTemperature: 0.7, cohesion: 0.8, turbulence: 0.0 },
+  },
+];
+
+export function getThemeById(id: string): Theme | undefined {
+  return themes.find((t) => t.id === id);
+}
+
+export function getAvailableThemes(entitlement: Entitlement): Theme[] {
+  return themes.filter((t) => canAccessTheme(t, entitlement));
+}
