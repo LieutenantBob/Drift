@@ -17,9 +17,6 @@ export default {
     },
     plugins: [
       'expo-router',
-      '@shopify/react-native-skia',
-      'expo-av',
-      ['react-native-purchases', { apiKey: 'REVENUECAT_API_KEY_PLACEHOLDER' }],
     ],
   },
 };
